@@ -25,8 +25,9 @@ def load_words_polysemy(url):
 
     palabras_polysemy
 
-    df = pd.DataFrame.from_records([palabras_polysemy])
-    df = df.T
+    df = pd.DataFrame.from_dict(palabras_polysemy, orient='index')
+
+    df.columns = ["polysemy"]
     df.to_csv("palabras_polysemy.csv")
     print("Finished")
 
