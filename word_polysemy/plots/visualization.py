@@ -2,9 +2,9 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 
-def plots(mode):
+def plots(mode,csv):
 
-    df = pd.read_csv("palabras_polysemy.csv", index_col=0)
+    df = pd.read_csv(csv, index_col=0)
     print(df)
 
     polysemy = df["polysemy"].values

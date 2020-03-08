@@ -5,3 +5,4 @@ def calculate_top(number, file, print_top):
     top = df.nlargest(number, "polysemy").values
     if print_top:
         print(top)
+    return top
