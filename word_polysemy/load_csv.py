@@ -30,6 +30,7 @@ def load_words_polysemy(url):
     df.columns = ["polysemy"]
     df.to_csv(ma.CSV_FILE)
     print("Finished")
+    return ma.CSV_FILE
 
 if __name__ == "__main__":
     load_words_polysemy("https://en.wikipedia.org/wiki/Most_common_words_in_English")
