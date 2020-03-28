@@ -8,13 +8,14 @@ CSV_FILE = "palabras_polysemy.csv"
 
 def pepito(mode, average, suma, number, print_top):
     url = "https://en.wikipedia.org/wiki/Most_common_words_in_English"
-    csv = lo.load_words_polysemy(url)
+    csv = lo.load_words_polysemy(url, CSV_FILE)
     vi.plots(mode, csv)
     av.calculate_metrics(csv, average, suma)
     top.calculate_top(number, csv, print_top)
 
 
 if __name__ == "__main__":
+    # python -m word_polysemy.main boxplot --average_yes
     parser = argparse.ArgumentParser(description='Plot words polysemy')
     parser.add_argument('type', type=str,  help='choose the type of plot: "boxplot", "scatter", "barplot"')
     parser.add_argument('--average_yes', action="store_true", help='Use this flag to compute polysemy average. Otherwise it wont be done')

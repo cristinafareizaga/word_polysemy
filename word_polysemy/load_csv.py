@@ -1,9 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
-import main as ma
 
-def load_words_polysemy(url):
+def load_words_polysemy(url, csv_file):
     print("loading words and polysemy")
     palabras = requests.get(url)
     soup = BeautifulSoup(palabras.content, 'html.parser')
@@ -28,9 +27,9 @@ def load_words_polysemy(url):
     df = pd.DataFrame.from_dict(palabras_polysemy, orient='index')
 
     df.columns = ["polysemy"]
-    df.to_csv(ma.CSV_FILE)
+    df.to_csv(csv_file)
     print("Finished")
-    return ma.CSV_FILE
+    return csv_file
 
 if __name__ == "__main__":
     load_words_polysemy("https://en.wikipedia.org/wiki/Most_common_words_in_English")

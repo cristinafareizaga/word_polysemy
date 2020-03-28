@@ -5,7 +5,6 @@ import pandas as pd
 def plots(mode,csv):
 
     df = pd.read_csv(csv, index_col=0)
-    print(df)
 
     polysemy = df["polysemy"].values
     words = df.index.values
